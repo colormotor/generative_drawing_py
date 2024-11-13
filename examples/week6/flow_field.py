@@ -34,6 +34,7 @@ def draw_flow_field():
     background(0)
     stroke(255, 0, 255, 255)
     step = 10
+    # Slow 
     for y in range(0, height, step):
         for x in range(0, width, step):
             theta = flow(x, y)
@@ -45,8 +46,9 @@ def draw():
     global particle
     background(0, 5)
 
-    # Uncomment to visualize flow field
-    draw_flow_field()
+    # Uncomment to visualize flow field (SLOW!!!)
+    # Better move this to a notebook
+    # draw_flow_field()
     angle = flow(particle[0], particle[1])
     particle += direction(angle) #Vector(cos(angle), sin(angle))
 
