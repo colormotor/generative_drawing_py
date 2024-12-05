@@ -16,7 +16,7 @@ def draw():
 
     img = vin.read()
 
-    img = img.resize((5,5)).convert('L')
+    img = img.resize((25,25)).convert('L')
     
     h = 0.5
     palette_y = int(remap(h, 0, 1, 0, palette.height-1))
