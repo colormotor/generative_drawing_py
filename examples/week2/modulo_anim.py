@@ -14,22 +14,20 @@
 
 from py5canvas import *
 
-t = 0
-
 def setup():
     create_canvas(512, 512)
-    stroke(0)
+    stroke(10)
     no_fill()
+    #no_loop()
 
 def ripple(x, y, step):
+    t = frame_count
     stroke_weight(step / 3)
-    for i in range(0, int(width * 3), step):
+    for i in range(0, width*3, step):
         circle(x, y, i + t % step)
 
 def draw():
-    global t
     background(255)
-    ripple(width / 2, height / 2, 20)
-    t += 1
-
+    ripple(width / 2, height / 2, 10)
+    
 run()

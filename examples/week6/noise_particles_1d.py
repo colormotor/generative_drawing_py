@@ -10,11 +10,11 @@ TASK
 - Can you increase the offset so that the trail becomes less obvious?
 """
 
-octaves = 2  
-falloff = 0.25  # try 0 - 0.5
+octaves = 4 
+falloff = 0.5  # try 0 - 0.5
 increment = 0.01
 input_val = 0
-offset = 0
+offset = 0.65
 
 def setup():
     global offset
@@ -29,9 +29,9 @@ def draw():
 
     background(0, 10)
 
-    n_x = noise(input_val)
-    n_y = noise(input_val + offset)  # offset y to get different noise values
-
+    n_x = noise(input_val*1)
+    n_y = noise(input_val*1 + offset)  # offset y to get different noise values
+    #print(n_x, n_y)
     x = remap(n_x, 0, 1, 0, width)
     y = remap(n_y, 0, 1, 0, height)
     circle(x, y, 5)

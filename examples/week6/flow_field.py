@@ -21,6 +21,8 @@ def setup():
     noise_detail(octaves, falloff)
     particle = Vector(width / 2, height / 2)
     background(0)
+    #draw_flow_field()
+    #no_loop()
 
 def flow(x, y):
     noise_val = noise(x * noise_scale + frame_count * 0.02, 
@@ -44,11 +46,11 @@ def draw_flow_field():
 
 def draw():
     global particle
-    background(0, 5)
+    #background(0, 5)
 
     # Uncomment to visualize flow field (SLOW!!!)
     # Better move this to a notebook
-    # draw_flow_field()
+    
     angle = flow(particle[0], particle[1])
     particle += direction(angle) #Vector(cos(angle), sin(angle))
 

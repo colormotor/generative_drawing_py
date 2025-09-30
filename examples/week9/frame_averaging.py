@@ -6,7 +6,7 @@ vin = VideoInput('fingers.mov', size=(w, h))
 
 # Create a buffer of images
 images = []
-num_frames = 20 # Number of frames to average
+num_frames = 30 # Number of frames to average
 
 # For color images, format is height (num rows), width (num cols), num_channels 
 # Alternative syntax, "List comprehension":

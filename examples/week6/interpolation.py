@@ -73,7 +73,7 @@ def draw():
             
             no_stroke()
             fill(0, 200, 100)
-            circle(x, y, 8)
+            circle(x, y, 4)
 
 def linear_interpolate(a, b, p):
     return a * (1 - p) + b * p

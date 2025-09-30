@@ -8,15 +8,16 @@ TASK
 - Experiment with different ways for rendering the noise pattern.
 """
 
-octaves = 4
+octaves = 2
 falloff = 0.5
-noise_scale = 0.05
+noise_scale = 0.15
 pixel_scale = 8
 
 def setup():
-    size(512, 512)
+    size(340, 340)
     no_stroke()
     noise_detail(octaves, falloff)
+    #no_loop()
 
 def draw():
     background(0)
@@ -28,7 +29,7 @@ def draw():
 
     for x in range(num_cols):
         for y in range(num_rows):
-            noise_val = noise(x * noise_scale, y * noise_scale)
+            noise_val = noise(x * noise_scale + frame_count*0.1, y * noise_scale + frame_count*0.1)
             fill(noise_val * 255)
             rect(x * w, y * h, w, h)
 

@@ -8,7 +8,7 @@ class Particle:
         self.reset()
 
     def reset(self):
-        self.pos = np.array(center) #mouse_pos)
+        self.pos = np.array(mouse_pos)
         self.vel = np.zeros(2)
         angle = -PI/2 + np.random.uniform(-1, 1)*0.2
         self.acc = np.array([np.cos(angle), np.sin(angle)])*400*np.random.uniform(0.5, 1.0)
@@ -40,7 +40,7 @@ def draw():
     background(0, 10)
 
     # Create particles until we reach a maximum capacity of the list
-    if len(particles) < 200:
+    if len(particles) < 1000:
         particles.append(Particle())
     # Update and draw the particles
     for p in particles:

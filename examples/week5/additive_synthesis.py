@@ -12,7 +12,7 @@ from py5canvas import *
 freq1 = 0.01
 freq2 = 0.1
 amp1 = 100
-amp2 = 10
+amp2 = 9
 
 def setup():
     create_canvas(800,400)

@@ -44,6 +44,6 @@ def draw():
     x = i % ncols  # the column
     y = (i - x) // ncols  # the row
     rect(x * size, y * size, size, size)
-    i = (i + primes[30]) % (nrows * ncols)  # in total, our grid has rows*columns entries
+    i = (i + primes[29]) % (nrows * ncols)  # in total, our grid has rows*columns entries
 
 run()

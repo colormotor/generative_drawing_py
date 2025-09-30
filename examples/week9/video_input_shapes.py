@@ -2,7 +2,8 @@ from py5canvas import *
 from PIL import ImageOps
 
 w, h = 400, 400
-vin = VideoInput(size=(w, h))
+#vin = VideoInput(1, size=(w, h))
+vin = VideoInput('fingers.mov', size=(w, h))
 
 def setup():
     create_canvas(w, h)

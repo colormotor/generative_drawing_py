@@ -16,7 +16,7 @@ def setup():
     no_fill()
     stroke(255)
     noise_detail(2)
-    
+
 def draw():
     background(0)
     translate(width / 2, height / 2)
