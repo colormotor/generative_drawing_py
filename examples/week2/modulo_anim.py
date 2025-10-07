@@ -9,7 +9,7 @@
  - The animation is intentionally inside a funtion:
    - try superimposing multiple "ripples" at different positions
    - try varying the parameters for different ripples
- - Note that in Javascript the % operator will also work with non-integer values
+ - Note that in Python the % operator will also work with non-integer values
 '''
 
 from py5canvas import *

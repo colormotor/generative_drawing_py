@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-import importlib
-import py5canvas
-importlib.reload(py5canvas)
 from py5canvas import *
 
 def setup():
     global runners, num_runners, runner_size, runner_spacing, increment
+
     create_canvas(512, 512)
 
     runners = []
