@@ -10,7 +10,7 @@
 
 from py5canvas import *
 
-freq_mod_freq = 0.01
+freq_mod_freq = 1.0
 
 def setup():
     create_canvas(400,400)
@@ -25,7 +25,7 @@ def draw():
     translate(width/2,0)
     begin_shape()
     for y in range(height):
-        carrier_freq = remap(sin(y*freq_mod_freq + freq_mod_phase),-1, 1, 0.01, 0.1)
+        carrier_freq = remap(sin(freq_mod_freq), -1, 1, 0.01, 0.1)
         x = remap(sin(y * carrier_freq), -1, 1, -50, 50)
         vertex(x, y)
     end_shape()

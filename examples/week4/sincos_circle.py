@@ -1,3 +1,7 @@
+'''
+Visualization of sin and cos along a circle
+'''
+
 from py5canvas import *
 
 t = 0
