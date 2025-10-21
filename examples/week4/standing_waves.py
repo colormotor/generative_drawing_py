@@ -21,7 +21,7 @@ def draw():
     freq = 2 * TWO_PI / width
 
     # Create a loop over x that increments by 2 each iteration
-    for x in arange(0, width, 2):
+    for x in range(0, width, 2):
         y = sin(x * freq + t) + sin(x * freq * a - t)
         circle(x, y * 100 + height / 2, 5)
     

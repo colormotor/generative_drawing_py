@@ -18,7 +18,7 @@ def setup():
     create_canvas(512, 512)
 
 def draw():
-    background(255, 0, 0)
+    background(0)
     fill(255)
     no_stroke()
     
@@ -26,13 +26,11 @@ def draw():
     delta = TWO_PI / 4
     a, b = 3.0, 2.0
 
-    for t in linspace(0, 2*PI, n):
+    #you can also do for t in linspace(0, 2*PI, n) and then remove the remap
+    for i in range(n): 
+        t = remap(i, 0, n, 0, TWO_PI)
         x = sin(t * a + delta)
         y = sin(t * b)
         circle((width / 2) + x * 200, (height / 2) + y * 200, 2)
 
-def key_pressed(key):
-    if key == ' ':
-        save('lissa.svg')
-# Run the sketch
 run()

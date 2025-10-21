@@ -24,7 +24,7 @@ def draw():
     translate(0,height/2)
 
     begin_shape()
-    for x in linspace(0, width, width+1):
+    for x in range(width):
         y = sin(x*freq1) * amp1
         y += sin(x*freq2) * amp2
         vertex(x, y)

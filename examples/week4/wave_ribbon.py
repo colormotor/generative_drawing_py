@@ -52,9 +52,5 @@ def draw():
         t = (x/width)*TWO_PI
         y = wave(t*freq + phase)*amp
         circle(x, y, 20) 
-
-def key_pressed(key):
-    if key == ' ':
-        save('canvas.svg')
-
+        
 run()

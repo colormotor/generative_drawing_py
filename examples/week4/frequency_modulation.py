@@ -24,7 +24,7 @@ def draw():
 
     translate(width/2,0)
     begin_shape()
-    for y in linspace(0, height, height+1):
+    for y in range(height):
         carrier_freq = remap(sin(y*freq_mod_freq + freq_mod_phase),-1, 1, 0.01, 0.1)
         x = remap(sin(y * carrier_freq), -1, 1, -50, 50)
         vertex(x, y)

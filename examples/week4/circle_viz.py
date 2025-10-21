@@ -61,6 +61,7 @@ def draw():
     arrow(center, center + y_vec)
     
     fill(255)
+    no_stroke()
     text_size(15)
     text_x = 20
     text_y = height - 70
