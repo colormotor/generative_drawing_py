@@ -17,19 +17,18 @@ def setup():
     stroke(255)
     noise_detail(2)
 
-def draw():
     background(0)
     translate(width / 2, height / 2)
-
+    n = 200
     for i in range(5):  # Create multiple concentric circles
         begin_shape()
-        for theta in range(360):
-            noise_val = noise(theta * noise_step, i * 0.1)  # Use 2D noise for smooth closure
-            r = remap(noise_val, 0, 1, 100 + i * 20, 200 + i * 30)  # Vary parameters outward
-            
-            x = sin(radians(theta)) * r
-            y = cos(radians(theta)) * r
-            
+        for j in range(n):
+            theta = remap(j, 0, n, 0, TWO_PI)
+            noise_val = noise(theta * noise_step * 70)
+            # How would you use 2D noise here to remove the "kink" from the circle?
+            r = remap(noise_val, 0, 1, 100, 200)
+            x = sin(theta) * r
+            y = cos(theta) * r
             vertex(x, y)
         end_shape(CLOSE)
 

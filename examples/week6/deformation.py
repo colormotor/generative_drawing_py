@@ -17,7 +17,7 @@ def setup():
     # initialize_positions_on_circle
     for i in range(num_points):
         t = i * TWO_PI / num_points
-        pos = Vector(sin(t), cos(t))
+        pos = vector(sin(t), cos(t))
         pos *= 100  # scale the vector to a radius of 100
         positions.append(pos)
 
