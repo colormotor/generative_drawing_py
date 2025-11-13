@@ -28,60 +28,58 @@ def setup():
     particles = np.array(particles)
     
     background(0)
-    #draw_flow_field()
+    draw_flow_field()
 
 def flow(x, y):
     noise_val = noise(x * noise_scale + frame_count * 0.02, 
                       y * noise_scale,
-                      frame_count * 0.01) # + 10)
+                      0) 
     angle = remap(noise_val, 0, 1, -1, 1)*TWO_PI 
-    return angle
+    return cos(angle), sin(angle)
+
+# def flow(x, y):
+#     x = remap(x, 0, width, -1, 1)
+#     y = remap(y, 0, height, -1, 1)
+#     return -y, x
 
 def draw_flow_field():
     stroke_weight(1)
     background(0)
     stroke(255, 0, 255, 255)
-    step = 20
+    step = 10
     # Slow 
     if not fast:
         for y in range(0, height, step):
             for x in range(0, width, step):
-                theta = flow(x, y)
-                dx = cos(theta)
-                dy = sin(theta)
-                line(x, y, x + dx * 20, y + dy * 20)
+                dx, dy = flow(x, y)
+                line(x, y, x + dx * step, y + dy * step)
     else:
         # Fast with numpy
         # Create a grid of points, storing the y and x coordinates as separate arrays
         # Each resulting array has shape (num_rows, num_cols)
         ys, xs = np.mgrid[0:height:step, 0:width:step]
-        angles = flow(xs, ys)
-        dxs = np.cos(angles) * 20
-        dys = np.sin(angles) * 20
+        dxs, dys = flow(xs, ys)
         for i in range(xs.shape[0]): # rows
             for j in range(xs.shape[1]): # cols
                 x = xs[i, j]
                 y = ys[i, j]
                 dx = dxs[i, j]
                 dy = dys[i, j]
-                line(x, y, x + dx, y + dy)      
+                line(x, y, x + dx * step, y + dy * step)      
 
 def draw():
     stroke_weight(2)
     stroke(255, 100)
     if not fast:
         for particle in particles:
-            angle = flow(particle[0], particle[1])
-            particle += direction(angle) 
+            d = flow(particle[0], particle[1])
+            particle += d
             point(particle)
     else:
         # Compute all particles in one go
-        angles = flow(particles[:,0], particles[:,1]) 
-        # X and Y directions
-        xs = np.cos(angles)
-        ys = np.sin(angles)
-        particles[:,0] += xs
-        particles[:,1] += ys
+        dxs, dys = flow(particles[:,0], particles[:,1]) 
+        particles[:,0] += dxs
+        particles[:,1] += dys
         # Draw particles
         for particle in particles:
             point(particle)
